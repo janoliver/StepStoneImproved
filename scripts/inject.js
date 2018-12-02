@@ -29,6 +29,7 @@ function getIgnoredReplacer(id, name) {
     return replacer;
 }
 
+
 async function hideIgnored() {
     let item = await browser.storage.sync.get(["ignored", "ignored_names"]);
     $(".job-element-row").each(function(e) {
@@ -65,6 +66,19 @@ function getCompanyID(el) {
     const id = parseInt(cid_re.exec(href)[1])
     return [id, name];
 }
+let blocked = false;
+
+$(document).on("DOMNodeInserted", ".job-elements-list", function() {
+    
+    if(!blocked) {
+        blocked = true;
+        hideIgnored();
+        addIgnoreLink();
+        setTimeout(function () {
+            blocked = false;
+        }, 1000);
+    }
+});
 
 hideIgnored();
 addIgnoreLink();
