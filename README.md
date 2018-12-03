@@ -5,7 +5,7 @@ for a job on [stepstone.de](https://www.stepstone.de).
 
 Currently, the following features are implemented:
 
-    * Ignore companys.
+* Ignore companies.
 
 Depending on how long my job search is going to last, more
 features may come. :) ... :(
